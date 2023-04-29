@@ -2,15 +2,15 @@
 
 Este projeto apresenta um Modelo ML para previsão de preços de casas com uma base de dados de imóveis disponiveis em Melbourne, capital costeira do estado de Victoria, no sudeste da Austrália.
 
-:book: dataset: -https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot?select=melb_data.csv
+## Dataset: [kaggle-melbourne-housing](https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot?select=melb_data.csv)
 ---
 ### Estrutura:
 
--[`data`](./data): diretório com os dados em csv
+- [`data`](./data): diretório com os dados em csv
 
--[`eda.ipynb`](./eda.ipynb): Jupyter notebook contendo a análise exploratória dos dados
+- [`eda.ipynb`](./eda.ipynb): Jupyter notebook contendo a análise exploratória dos dados
 
--[`ml.ipynb`](./ml.ipynb): Jupyter notebook contendo o modelo e testes da regressão e árvore de decisão dos dados tratados
+- [`ml.ipynb`](./ml.ipynb): Jupyter notebook contendo o modelo e testes da regressão e árvore de decisão dos dados tratados
 ---
 ### Descrição da Base
 
