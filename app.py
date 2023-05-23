@@ -3,11 +3,7 @@ import pickle
 import sklearn
 import pandas as pd
 
-def calculate_output(input_data):
-    # Realize o processamento necessário para calcular a saída com base nas entradas
-    # Neste exemplo, vamos simplesmente somar todas as entradas
-    output = sum(input_data)
-    return output
+
 
 def main():
     st.title("Regressor Melbourne Price")
@@ -28,19 +24,23 @@ def main():
         'Longtitude',
         'Propertycount', 
         'Month']
-    
-    for i in range(9):
-        input_values.append(st.number_input( labels[i] , value=0.0))
 
-    if st.button('Predição'):
+    for i in range(9):
+        input_values.append(st.number_input(labels[i], step=1.0, format='%.f'))
+        
+
+    if st.button('Calcule Preço'):
+        # transforma os dados em um df
         df = pd.DataFrame([input_values], columns=labels)
-        # reescalar os valores de input
-        scaled_cols = scaler.fit_transform(df)
+        # reescala os dados com a transformação original dos dados
+        scaled_cols = scaler.transform(df[labels])
+        scaled_cols = pd.DataFrame(scaled_cols, columns=labels)
         # Calcular a saída com base nas entradas
         output = pickled_model.predict(scaled_cols)
         # Exibir a saída
         st.header("Saída:")
-        st.write(output)
+        st.success(f'O preço da residência é de: ${output[0]:,.2f} USD')
 
 if __name__ == "__main__":
+
     main()
