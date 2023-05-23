@@ -20,7 +20,6 @@ dbus-python==1.2.16
 debugpy==1.6.6
 decorator==5.1.1
 distro==1.4.0
-distro-info===0.23ubuntu1
 entrypoints==0.3
 executing==1.2.0
 Fiona==1.9.3
