@@ -12,7 +12,7 @@ def main():
     input_values = []
 
     # Importar scaler e model
-    scaler = pickle.load(open('./model/scalar.pkl', 'rb'))
+    scaler = pickle.load(open('./model/std_scalar.pkl', 'rb'))
     pickled_model = pickle.load(open('./model/model.pkl', 'rb'))
 
     labels = ['Rooms',
@@ -31,12 +31,19 @@ def main():
 
     if st.button('Calcule Preço'):
         # transforma os dados em um df
-        df = pd.DataFrame([input_values], columns=labels)
+        df_prod = pd.DataFrame([input_values], columns=labels)
+        
         # reescala os dados com a transformação original dos dados
-        scaled_cols = scaler.transform(df[labels])
-        scaled_cols = pd.DataFrame(scaled_cols, columns=labels)
+        
+        df_scalar = pd.DataFrame()
+
+        for cols in df_prod.columns:
+            z_prod = (df_prod[cols]-scaler[cols][0])/scaler[cols][1]
+            df_scalar[cols] = z_prod
+
         # Calcular a saída com base nas entradas
-        output = pickled_model.predict(scaled_cols)
+        output = pickled_model.predict(df_scalar)
+        
         # Exibir a saída
         st.header("Saída:")
         st.success(f'O preço da residência é de: ${output[0]:,.2f} USD')
