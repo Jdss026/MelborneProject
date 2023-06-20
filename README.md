@@ -1,23 +1,32 @@
 # MelbourneProject
 
-Este projeto apresenta um Modelo ML para previsão de preços de casas com uma base de dados de imóveis disponiveis em Melbourne, capital costeira do estado de Victoria, no sudeste da Austrália.
+Este projeto apresenta uma análise exploratória da Base de dados, Modelos ML para previsão de preços de casas e uma API em flask para consumir este modelo. A base de dados são características de imóveis disponiveis em Melbourne, capital costeira do estado de Victoria, no sudeste da Austrália.
 
 ## Definição do Problema
 
-Vamos realizar uma limpeza e análise exploratória na base de dados imobiliários em Melborn, Austrália. 
+Vamos realizar uma limpeza e análise exploratória na base de dados imobiliários em Melborn, Austrália. Em seguida, iremos treinar um modelo de regressão e implementar uma API para consumo deste modelo.
 
 ## Dataset: [kaggle-melbourne-housing](https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot?select=melb_data.csv)
 ---
-### Estrutura:
+## Estrutura:
 
-- [`data`](./data): diretório com os dados em csv
+- [`data`](./data): diretório com os dados em csv.
 
-- [`eda.ipynb`](./eda.ipynb): Jupyter notebook contendo a análise exploratória dos dados
+- [`model`](./model): diretório com os dados dos modelos e pré-processamento.
 
-- [`ml.ipynb`](./ml.ipynb): Jupyter notebook contendo o modelo e testes da regressão e árvore de decisão dos dados tratados
+- [`model_api`](./model_api): main.py que contém a API em flask.
 
+- [`notebooks`](./notebooks): Notebooks que contém a EDA, Modelos e Teste de Produção.
+
+    - [`eda.ipynb`](./notebooks/eda.ipynb): Jupyter notebook contendo a análise exploratória dos dados
+
+    - [`ml.ipynb`](./notebooks/ml.ipynb): Jupyter notebook contendo o modelo e testes da regressão e árvore de decisão dos dados tratados
+    
+    - [`prod.ipynb`](./notebooks/prod.ipynb): Jupyter notebook contendo testes do modelo para produção 
+
+- [`requirements.txt`](./requirements.txt): arquivo com bibliotecas utilizadas no projeto.
 ---
-### Descrição da Base
+## Descrição da Base
 
 1. **Rooms**: Número de quartos  
 2. **Price**: Preço em dólares  
@@ -34,3 +43,26 @@ Vamos realizar uma limpeza e análise exploratória na base de dados imobiliári
 13. **Landsize**: Tamanho do terreno  
 14. **BuildingArea**: Tamanho da construção  
 15. **CouncilArea**: Conselho governante para a área  
+
+---
+
+## Uso
+
+1. Clone este repositório
+2. Mude para dentro da pasta usando `cd`
+3. Instale os requerimentos via `pip`
+
+```bash
+pip install requirements.txt
+```
+4. Mude para dentro da pasta da API usando 
+```bash
+cd model_api
+```
+5. Execute a API
+```bash
+python main.py
+```
+6 O Flask indica qual porta em localhost a API estará disponível para consumo. Esta é uma API de desenvovimento.
+
+

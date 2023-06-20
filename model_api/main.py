@@ -1,14 +1,15 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 import pickle
 import pandas as pd
 import numpy as np
 
 # cria o app flask
 app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
 
 #importa modelo e scaler como objetos
-model = pickle.load(open('model/model.pkl', 'rb'))
-scaler = pickle.load(open('./model/std_scalar.pkl','rb'))
+model = pickle.load(open('../model/model.pkl', 'rb'))
+scaler = pickle.load(open('../model/std_scalar.pkl','rb'))
 
 #labels para colunas do df
 labels = ['Rooms',
@@ -43,7 +44,9 @@ def predict():
     df_scalar = pd.DataFrame([df_scalar], columns=labels)
     prediction = model.predict(df_scalar)
 
-    return jsonify(prediction[0])
+    return make_response(
+        jsonify(mensagem = "Previsao feita com sucesso",
+                dado = prediction[0]))
 
 
 if __name__ == '__main__':
