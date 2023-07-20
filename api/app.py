@@ -79,16 +79,6 @@ def predict_index():
 
     df_scalar = pd.DataFrame([df_scalar], columns=labels)
     prediction = model.predict(df_scalar)[0]
-
-    # result = model.predict(np.array([rooms,
-    #     distance,
-    #     bathroom,
-    #     car,
-    #     landsize,
-    #     lattitude,
-    #     longtitude,
-    #     propertycount, 
-    #     month]).reshape(1,9))[0]
     
     return render_template('index.html', result=prediction)
 
