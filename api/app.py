@@ -51,15 +51,60 @@ def predict():
 
 @app.route('/predict', methods=['POST'])
 def predict_index():
-    rooms         = float(request.form.get('Rooms'))
-    distance      = float(request.form.get('Distance'))
-    bathroom      = float(request.form.get('Bathroom'))
-    car           = float(request.form.get('Car'))
-    landsize      = float(request.form.get('Landsize'))
-    lattitude     = float(request.form.get('Lattitude'))
-    longtitude    = float(request.form.get('Longtitude'))
-    propertycount = float(request.form.get('Propertycount'))
-    month         = float(request.form.get('Month'))
+    try:
+        rooms = float(request.form.get('Rooms'))
+    except (ValueError, TypeError):
+        rooms = 0
+
+    try:
+        distance = float(request.form.get('Distance'))
+    except (ValueError, TypeError):
+        distance = 0
+
+    try:
+        bathroom = float(request.form.get('Bathroom'))
+    except (ValueError, TypeError):
+        bathroom = 0
+
+    try:
+        car = float(request.form.get('Car'))
+    except (ValueError, TypeError):
+        car = 0
+
+    try:
+        landsize = float(request.form.get('Landsize'))
+    except (ValueError, TypeError):
+        landsize = 0
+
+    try:
+        lattitude = float(request.form.get('Lattitude'))
+    except (ValueError, TypeError):
+        lattitude = 0
+
+    try:
+        longtitude = float(request.form.get('Longtitude'))
+    except (ValueError, TypeError):
+        longtitude = 0
+
+    try:
+        propertycount = float(request.form.get('Propertycount'))
+    except (ValueError, TypeError):
+        propertycount = 0
+
+    try:
+        month = float(request.form.get('Month'))
+    except (ValueError, TypeError):
+        month = 0
+
+    # rooms         = float(request.form.get('Rooms'))
+    # distance      = float(request.form.get('Distance'))
+    # bathroom      = float(request.form.get('Bathroom'))
+    # car           = float(request.form.get('Car'))
+    # landsize      = float(request.form.get('Landsize'))
+    # lattitude     = float(request.form.get('Lattitude'))
+    # longtitude    = float(request.form.get('Longtitude'))
+    # propertycount = float(request.form.get('Propertycount'))
+    # month         = float(request.form.get('Month'))
 
     features = pd.DataFrame(np.array([rooms,
         distance,
