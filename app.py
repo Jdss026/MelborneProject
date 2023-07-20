@@ -8,8 +8,8 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 #importa modelo e scaler como objetos
-model = pickle.load(open('./model/model.pkl', 'rb'))
-scaler = pickle.load(open('./model/std_scalar.pkl','rb'))
+# model = pickle.load(open('./model/model.pkl', 'rb'))
+# scaler = pickle.load(open('./model/std_scalar.pkl','rb'))
 
 #labels para colunas do df
 labels = ['Rooms',
