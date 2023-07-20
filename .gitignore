@@ -1,4 +1,4 @@
-**/data
-model
-model_api
-notebooks
+/data
+/model
+/model_api
+/notebooks
