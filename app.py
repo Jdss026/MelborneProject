@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, make_response
-import pickle
-import pandas as pd
-import numpy as np
+# import pickle
+# import pandas as pd
+# import numpy as np
 
 # cria o app flask
 app = Flask(__name__)
