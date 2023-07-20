@@ -24,7 +24,7 @@ labels = ['Rooms',
 
 @app.route('/',methods=['GET'])
 def main():
-    return render_template('./index.html')
+    return render_template('index.html')
 
 # decorator do flask para rotear caminho a função
 @app.route('/predict_json',methods=['POST'])
