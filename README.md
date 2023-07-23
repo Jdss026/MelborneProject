@@ -14,7 +14,7 @@ Vamos realizar uma limpeza e análise exploratória na base de dados imobiliári
 
 - [`model`](./model): diretório com os dados dos modelos e pré-processamento.
 
-- [`model_api`](./model_api): main.py que contém a API em flask.
+- [`app.py`](./app.py): app.py que contém a API em flask.
 
 - [`notebooks`](./notebooks): Notebooks que contém a EDA, Modelos e Teste de Produção.
 
